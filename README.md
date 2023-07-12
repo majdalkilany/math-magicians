@@ -4,7 +4,7 @@
 
   <br/>
 
-# Movie Capstone Project
+# Math-Magicians
 
 </div>
 
@@ -27,7 +27,7 @@
   -- [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 MOVIE CAPSTONE <a name="Portfolio-site"></a>
+# 📖 Math-Magicians <a name="Portfolio-site"></a>
 
 "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to:
 
@@ -57,7 +57,7 @@ Javascript React.js CSS
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-See the ShowMovie project <a href="https://majdalkilany.github.io/math-magicians/build"> here</a>
+See the Math-Magician project <a href="https://majdalkilany.github.io/math-magicians/build"> here</a>
 
 <!-- GETTING STARTED -->
 
