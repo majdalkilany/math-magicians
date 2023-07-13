@@ -1,6 +1,7 @@
 import './calculator.css';
-
 import { useState } from 'react';
+import calculate from '../../logic/calculate';
+
 import Button from '../Button/Button';
 
 const buttons = [
@@ -25,28 +26,31 @@ const buttons = [
   '=',
 ];
 
+const initialObject = { total: 0, next: null, operation: null };
 const Calculator = () => {
-  const [calculatorInputs, setCalculatorInputs] = useState('0');
+  // const [calculatorInputs, setCalculatorInputs] = useState('0');
+  const [obj, setObj] = useState(initialObject);
+
   const handleClick = (e) => {
     const { value } = e.target;
-    let newCalculatorInputs = calculatorInputs;
-    if (calculatorInputs[0] === '0') {
-      newCalculatorInputs = calculatorInputs.slice(1);
-      setCalculatorInputs(newCalculatorInputs);
-    }
-    if (value === 'AC') {
-      setCalculatorInputs('0');
-    } else {
-      setCalculatorInputs(newCalculatorInputs + value);
-    }
+
+    const result = calculate(obj, value);
+    setObj(result);
+    console.log(result);
   };
   const renderButtons = buttons.map((btn, index) => (
     <Button key={`${btn}-${index}`} btnValue={btn} handleClick={handleClick} />
   ));
+  const displayResult = () => {
+    if (obj.next) {
+      return obj.next;
+    }
+    return obj.total;
+  };
 
   return (
     <div className="calculator">
-      <input type="text" className="display" readOnly value={calculatorInputs} />
+      <input type="text" className="display" readOnly value={displayResult()} />
       {renderButtons}
     </div>
   );
