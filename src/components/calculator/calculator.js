@@ -28,7 +28,6 @@ const buttons = [
 
 const initialObject = { total: 0, next: null, operation: null };
 const Calculator = () => {
-  // const [calculatorInputs, setCalculatorInputs] = useState('0');
   const [obj, setObj] = useState(initialObject);
 
   const handleClick = (e) => {
@@ -36,7 +35,6 @@ const Calculator = () => {
 
     const result = calculate(obj, value);
     setObj(result);
-    console.log(result);
   };
   const renderButtons = buttons.map((btn, index) => (
     <Button key={`${btn}-${index}`} btnValue={btn} handleClick={handleClick} />
