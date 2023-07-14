@@ -34,13 +34,7 @@
 - Make simple calculations.
 - Read a random math-related quote.
 
-Here's a <a href="https://drive.google.com/file/d/1-MESTBagOxrhoPg2DDMhslIa6WOpfF_w/view?usp=sharing">brief video overview </a>.
-
 ## Built With <a name="built-with"></a>
-
-<details>
-  <summary>Client</summary>
-React.js
 
 ## Tech stack <a name="tech-stack"></a>
 
