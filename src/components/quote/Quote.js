@@ -1,22 +1,47 @@
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const Quote = ({ myQuote: { quote, author } }) => (
+import './quote.css';
 
-  <h3>
+const Quote = () => {
+  const [quote, setQuote] = useState('');
+  const [err, setErr] = useState(undefined);
 
-    {quote}
-    ...
-    <span>
-      {author}
-    </span>
-  </h3>
-);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://api.api-ninjas.com/v1/quotes', {
+        headers: { 'X-Api-Key': 'Pv22IAZ+1DA60IAISrFLsg==d7EICAbn0JwtbNjK' },
+        contentType: 'application/json',
+      });
+      setQuote(response.data[0]);
+    } catch (error) {
+      setErr(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-Quote.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  myQuote: PropTypes.object.isRequired,
-  quote: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  const renderQuote = () => {
+    if (quote) {
+      return (
+        <h4>
+          {quote.quote}
+          ...
+          <span>{quote.author}</span>
+        </h4>
+      );
+    } if (err) {
+      return (
+        <h4>
+          Error:
+          {err}
+        </h4>
+      );
+    }
+    return <h4>Loading...</h4>;
+  };
+  return (<div>{renderQuote()}</div>);
 };
 
 export default Quote;
