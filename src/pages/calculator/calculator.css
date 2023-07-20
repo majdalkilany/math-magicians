@@ -3,7 +3,6 @@
   grid-template-columns: repeat(4, 1fr);
   background-color: #333;
   max-width: 20rem;
-  margin: 0 auto;
 }
 
 .display {
@@ -15,4 +14,9 @@
   text-align: right;
   border: none;
   border-radius: 5px;
+}
+
+.calculator-page {
+  display: flex;
+  justify-content: space-around;
 }
