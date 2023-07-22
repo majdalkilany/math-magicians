@@ -2,7 +2,7 @@ import './calculator.css';
 import { useState } from 'react';
 import calculate from '../../logic/calculate';
 
-import Button from '../Button/Button';
+import Button from '../../components/Button/Button';
 
 const buttons = [
   'AC',
@@ -47,9 +47,13 @@ const Calculator = () => {
   };
 
   return (
-    <div className="calculator">
-      <input type="text" className="display" readOnly value={displayResult()} />
-      {renderButtons}
+    <div className="calculator-page">
+      <h2 className="calculator-header"> Let&apos;s do some math! </h2>
+      <div className="calculator">
+        <input type="text" className="display" readOnly value={displayResult()} />
+        {renderButtons}
+      </div>
+
     </div>
   );
 };
